@@ -1,0 +1,15 @@
+[Unit]
+Description=JBoss EAP Systemctl script
+After=NetworkManager.service
+
+[Service]
+Type=forking
+ExecStart=/app/jboss-eap-7.4.5/bin/init.d/node_jboss2.sh start
+ExecStop=/app/jboss-eap-7.4.5/bin/init.d/node_jboss2.sh stop
+ExecReload=/app/jboss-eap-7.4.5/bin/init.d/node_jboss2.sh restart
+PIDFile=/var/run/jboss-eap/node_jboss2.pid
+TimeoutStartSec=600
+TimeoutStopSec=600
+
+[Install]
+WantedBy=multi-user.target
